@@ -1,0 +1,23 @@
+# Kept out of the Vercel deployment. Everything the live page needs stays:
+# index.html, 404.html, assets/site.css, assets/site.js, assets/theme-init.js,
+# assets/404.css, assets/profile.webp, content.json, frame-*.jpg, steizen-*.jpg,
+# steizen-demo.mp4, favicon.
+
+# Local-only editor and its bundle (the panel is a local tool, not part of the site)
+admin.html
+assets/admin.js
+assets/admin.css
+
+# Old revisions and working files
+backup/
+.freebuff/
+
+# Netlify-only config; Vercel reads vercel.json instead
+_headers
+_redirects
+
+# Dev captures that are not used by any page
+*.png
+frame-settings.jpg
+steizen-signals.jpg
+scroll-animation.webm

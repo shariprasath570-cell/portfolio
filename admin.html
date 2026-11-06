@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio admin — Hariprasath S</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="dark light">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="assets/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/admin.css?v=2">
+</head>
+<body>
+
+  <!-- ================= LOGIN ================= -->
+  <div class="login" id="loginView">
+    <div class="login-card" id="loginCard">
+      <p class="login-kicker">Restricted</p>
+      <h1>Portfolio admin</h1>
+      <p class="login-sub">Edit the profile, projects and contact details the site reads.</p>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" autocomplete="current-password" placeholder="Enter admin password">
+        </div>
+        <p class="login-error" id="loginError" role="status" aria-live="polite"></p>
+        <button class="btn btn-primary btn-block" type="submit">Unlock editor</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= EDITOR ================= -->
+  <div class="app hidden" id="appView">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">HS</span>
+        <div class="brand-text">
+          <p class="brand-name">Portfolio admin</p>
+          <p class="brand-role">Content editor</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Admin sections">
+        <p class="nav-label">Sections</p>
+        <button type="button" class="nav-btn is-active" data-view="profile" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </button>
+        <button type="button" class="nav-btn" data-view="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          Contact
+        </button>
+        <button type="button" class="nav-btn" data-view="projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Projects
+          <span class="nav-count" id="navProjectsCount">0</span>
+        </button>
+        <button type="button" class="nav-btn" data-view="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg>
+          Settings
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <button type="button" class="side-row" id="themeBtn" aria-label="Switch theme">
+          <span>Theme</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+        </button>
+        <a class="side-row" href="index.html">
+          <span>View site</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+        </a>
+        <button type="button" class="side-row" id="logoutBtn">
+          <span>Log out</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+        </button>
+        <p class="side-meta">
+          <strong id="sideState">Nothing loaded</strong>
+          <span id="sideSaved">—</span>
+        </p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-title">
+          <h1 id="viewTitle">Profile</h1>
+          <span class="state" id="saveState">Saved</span>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-ghost" id="importBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+            Import
+          </button>
+          <input type="file" id="importFile" accept="application/json,.json" class="hidden">
+          <button type="button" class="btn btn-ghost" id="exportBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+            Export
+          </button>
+          <button type="button" class="btn btn-primary" id="saveBtn" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+            Save
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <!-- ---------- PROFILE ---------- -->
+        <section class="panel" data-view="profile" id="view-profile" aria-labelledby="profileHead">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">// Identity</p>
+              <h2 id="profileHead">Profile</h2>
+            </div>
+            <p class="panel-note">The name and intro that open the page, plus the availability badges.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="p-name">First name</label>
+              <input type="text" id="p-name" data-path="profile.name" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="p-lastName">Last name</label>
+              <input type="text" id="p-lastName" data-path="profile.lastName" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="p-role">Role line</label>
+            <input type="text" id="p-role" data-path="profile.role" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="p-intro">Intro</label>
+            <textarea id="p-intro" data-path="profile.intro"></textarea>
+            <p class="hint">One or two sentences — this sits under the headline.</p>
+          </div>
+
+          <div class="field">
+            <label for="p-photo">Photo path</label>
+            <input type="text" id="p-photo" data-path="profile.photo" autocomplete="off" placeholder="assets/profile.webp">
+            <p class="hint">Relative to the site root. The hero renders without it if the file is missing.</p>
+          </div>
+
+          <div class="switch-row">
+            <label class="check" for="p-openToWork">
+              <input type="checkbox" id="p-openToWork" data-path="profile.openToWork" data-type="bool">
+              <span>Open to work</span>
+            </label>
+            <label class="check" for="p-freelance">
+              <input type="checkbox" id="p-freelance" data-path="profile.freelance" data-type="bool">
+              <span>Available for freelance</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- ---------- CONTACT ---------- -->
+        <section class="panel hidden" data-view="contact" id="view-contact" aria-labelledby="contactHead">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">// Reachable</p>
+              <h2 id="contactHead">Contact</h2>
+            </div>
+            <p class="panel-note">Used by the email button, the WhatsApp link and the LinkedIn action in the contact card.</p>
+          </div>
+
+          <div class="field">
+            <label for="c-email">Email</label>
+            <input type="email" id="c-email" data-path="contact.email" autocomplete="off">
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="c-whatsapp">WhatsApp</label>
+              <input type="text" id="c-whatsapp" data-path="contact.whatsapp" autocomplete="off" placeholder="919876543210">
+              <p class="hint">Country code first, no plus or spaces. Leave empty to hide.</p>
+            </div>
+            <div class="field">
+              <label for="c-linkedin">LinkedIn URL</label>
+              <input type="url" id="c-linkedin" data-path="contact.linkedin" autocomplete="off" placeholder="https://www.linkedin.com/in/…">
+              <p class="hint">Only http(s) links are rendered on the site.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---------- PROJECTS ---------- -->
+        <section class="hidden" data-view="projects" id="view-projects" aria-labelledby="projectsHead">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <p class="kicker">// Case studies</p>
+                <h2 id="projectsHead">Projects</h2>
+              </div>
+              <p class="panel-note">Each project becomes a case study on the work page. The first one with screenshots or video drives those sections.</p>
+            </div>
+
+            <div class="projects-head">
+              <p class="hint mono" id="projectsState">0 projects</p>
+              <div class="projects-tools">
+                <button type="button" class="btn btn-ghost" id="addProject">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                  Add project
+                </button>
+              </div>
+            </div>
+
+            <div class="proj-list" id="projectsList"></div>
+          </div>
+        </section>
+
+        <!-- ---------- SETTINGS ---------- -->
+        <section class="panel hidden" data-view="settings" id="view-settings" aria-labelledby="settingsHead">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">// Storage</p>
+              <h2 id="settingsHead">Settings</h2>
+            </div>
+            <p class="cloud-state" id="cloudState">Cloud not linked</p>
+          </div>
+
+          <ol class="setup-steps">
+            <li>Create a free account at <a href="https://jsonbin.io" target="_blank" rel="noopener noreferrer">jsonbin.io</a>.</li>
+            <li>Make an API key and one private bin holding this content.</li>
+            <li>Paste the key and the bin ID here, save the settings, then use <strong>Save</strong> to publish.</li>
+          </ol>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="cfg-api">JSONBin API key</label>
+              <input type="password" id="cfg-api" autocomplete="off" spellcheck="false" placeholder="X-Master-Key value">
+            </div>
+            <div class="field">
+              <label for="cfg-bin">Bin ID</label>
+              <input type="text" id="cfg-bin" autocomplete="off" spellcheck="false" placeholder="e.g. 67f0a1b2c3d4">
+            </div>
+          </div>
+
+          <div class="projects-head settings-actions">
+            <span class="hint">The key stays in this browser only — it is never written into the site files.</span>
+            <div class="projects-tools">
+              <button type="button" class="btn btn-ghost" id="testCloud">Test connection</button>
+              <button type="button" class="btn btn-primary" id="saveCfg">Save settings</button>
+            </div>
+          </div>
+
+          <div class="danger-zone">
+            <p>Reload <span class="mono">content.json</span> to throw away this draft and start from the file on disk.</p>
+            <button type="button" class="btn btn-ghost" id="reloadBtn">Reload from file</button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/admin.js?v=3"></script>
+</body>
+</html>

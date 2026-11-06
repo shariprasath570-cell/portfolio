@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "name": "Hariprasath",
+    "lastName": "S",
+    "role": "IT Student · Full Stack Developer · AI Builder",
+    "intro": "BSc IT student building a source-backed standards assistant for Smart India Hackathon, and a rule-based futures platform with a 1,118-trade backtest behind it.",
+    "photo": "assets/profile.webp",
+    "openToWork": true,
+    "freelance": true
+  },
+  "contact": {
+    "email": "shariprasath4577@gmail.com",
+    "whatsapp": "",
+    "linkedin": "https://www.linkedin.com/in/hariprasath-s-527823386/"
+  },
+  "projects": [
+    {
+      "id": "sih",
+      "tags": [
+        "SIH 2026",
+        "AI / RAG"
+      ],
+      "status": "In progress",
+      "title": "AI Assistant for BIS Standards",
+      "role": "Smart India Hackathon · Ministry of Consumer Affairs",
+      "desc": "A retrieval-backed assistant that turns a plain product description into the Indian Standards that apply, the BIS certification path, and the labs that can test it — answered in English or Hindi, with sources attached.",
+      "features": [
+        "Standard recommendation from a product description",
+        "BIS certification guidance and eligibility check",
+        "Hallmarking and testing-lab suggestions",
+        "Document checklist per product",
+        "Multilingual answers (English and Hindi)"
+      ],
+      "tech": [
+        "Next.js",
+        "Python · FastAPI",
+        "RAG + vector DB",
+        "Llama 3 via Groq"
+      ],
+      "results": [],
+      "metrics": [],
+      "visual": "sih",
+      "hasVideo": false,
+      "hasGallery": false
+    },
+    {
+      "id": "steizen",
+      "tags": [
+        "STEIZEN",
+        "FinTech"
+      ],
+      "status": "In progress",
+      "title": "STEIZEN — Rule-Based Trading Platform",
+      "role": "Algorithmic trading system for Nasdaq futures (MNQ / NQ)",
+      "desc": "A rule-based trading system that detects market structure, scores trade quality, sizes risk in R multiples, and executes through IBKR — with a full backtesting and journaling loop around it.",
+      "features": [
+        "BOS / CHoCH, fair value gaps, order blocks",
+        "Trade quality scoring before entry",
+        "R-multiple risk engine",
+        "IBKR paper and live execution",
+        "Backtesting and trade journal"
+      ],
+      "tech": [],
+      "results": [
+        "1,118 trades · +133 R net",
+        "Expectancy +0.119 R",
+        "Profit factor 1.19",
+        "11/11 walk-forward windows positive"
+      ],
+      "metrics": [
+        {
+          "value": "1,118",
+          "label": "Trades"
+        },
+        {
+          "value": "+133 R",
+          "label": "Net"
+        },
+        {
+          "value": "1.19",
+          "label": "Profit factor"
+        },
+        {
+          "value": "11/11",
+          "label": "Walk-forward"
+        }
+      ],
+      "note": "Backtested results, not live trading performance.",
+      "visual": "none",
+      "hasVideo": true,
+      "hasGallery": true
+    }
+  ]
+}

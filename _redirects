@@ -1,0 +1,7 @@
+# The editor and its bundle are local-only. Blocking the assets too keeps the
+# editor's client-side gate string off the public web. Restore the panel by
+# deleting these three lines (and the no-store/noindex in _headers).
+/admin.html            /404.html   404
+/assets/admin.js       /404.html   404
+/assets/admin.css      /404.html   404
+/backup/*              /404.html   404

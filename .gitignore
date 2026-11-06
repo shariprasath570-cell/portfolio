@@ -1,0 +1,11 @@
+# Local tooling and deploy scratch
+.freebuff/
+.vercel/
+*.log
+
+# Old revisions and development captures live only on the machine
+backup/
+*.png
+frame-settings.jpg
+steizen-signals.jpg
+scroll-animation.webm
