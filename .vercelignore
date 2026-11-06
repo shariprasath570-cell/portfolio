@@ -16,8 +16,9 @@ backup/
 _headers
 _redirects
 
-# Dev captures that are not used by any page
+# Dev captures that are not used by any page (the social preview image is the exception)
 *.png
+!assets/og.png
 frame-settings.jpg
 steizen-signals.jpg
 scroll-animation.webm
