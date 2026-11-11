@@ -119,7 +119,10 @@
       "visual": "none",
       "hasVideo": false,
       "hasGallery": false,
-      "url": "https://streakly-habit-tracker-hari-5fd2.vercel.app"
+      "url": "https://streakly-habit-tracker-hari-5fd2.vercel.app",
+      "image": "streakly-shot.jpg",
+      "imageAlt": "Streakly dashboard with today's habit stats, completion rate, best streak and habit cards.",
+      "imageCaption": "Streakly dashboard — sample habits, streaks and completion stats"
     }
   ]
 }

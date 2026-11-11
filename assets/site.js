@@ -815,6 +815,17 @@
             ? '<a class="project-live" href="' + escapeHtml(liveUrl) + '" target="_blank" rel="noopener noreferrer">View live app <span aria-hidden="true">↗</span></a>'
             : '';
 
+        /* Local captures are filenames, not absolute URLs: accept only a
+           single image file at the site root or in assets/. */
+        var shotFile = typeof project.image === 'string' ? project.image.trim() : '';
+        if (shotFile && !/^(?:assets\/)?[A-Za-z0-9._-]+\.(?:png|jpe?g|webp|avif)$/i.test(shotFile)) shotFile = '';
+        var shot = shotFile
+            ? '<figure class="project-shot">' +
+                '<img src="' + escapeHtml(shotFile) + '" alt="' + escapeHtml(project.imageAlt || ((project.title || 'Project') + ' screenshot')) + '" width="1280" height="900" loading="lazy" decoding="async">' +
+                (project.imageCaption ? '<figcaption>' + escapeHtml(project.imageCaption) + '</figcaption>' : '') +
+            '</figure>'
+            : '';
+
         /* Screenshots and the demo now live in their own sections further down
            the page, built by mountMedia(). The case study keeps only the
            terminal, so the write-up stays readable. */
@@ -837,6 +848,7 @@
                         note +
                     '</div>' +
                 '</div>' +
+                shot +
                 '<div class="project-columns">' +
                     '<div class="project-col"><h4>What it does</h4><ul class="dash-list" data-stagger>' + features + '</ul></div>' +
                     second +

@@ -672,6 +672,29 @@ body::before {
     border-color: var(--accent);
 }
 
+.project-shot {
+    margin-top: clamp(1.6rem, 3.5vw, 2.6rem);
+    border: 1px solid var(--line-strong);
+    background: var(--bg-soft);
+    overflow: hidden;
+}
+
+.project-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-shot figcaption {
+    padding: 0.65rem 0.85rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
 .project-metrics {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
