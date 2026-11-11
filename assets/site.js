@@ -810,6 +810,11 @@
             ? '<p class="project-note">' + escapeHtml(project.note) + '</p>'
             : '';
 
+        var liveUrl = safeUrl(project.url);
+        var live = liveUrl
+            ? '<a class="project-live" href="' + escapeHtml(liveUrl) + '" target="_blank" rel="noopener noreferrer">View live app <span aria-hidden="true">↗</span></a>'
+            : '';
+
         /* Screenshots and the demo now live in their own sections further down
            the page, built by mountMedia(). The case study keeps only the
            terminal, so the write-up stays readable. */
@@ -827,6 +832,7 @@
                         '<h3>' + escapeHtml(project.title || '') + '</h3>' +
                         '<p class="project-role">' + escapeHtml(project.role || '') + '</p>' +
                         '<p class="project-summary">' + escapeHtml(project.desc || '') + '</p>' +
+                        live +
                         metrics +
                         note +
                     '</div>' +

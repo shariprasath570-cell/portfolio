@@ -89,6 +89,37 @@
       "visual": "none",
       "hasVideo": true,
       "hasGallery": true
+    },
+    {
+      "id": "streakly",
+      "tags": [
+        "Habit tracker",
+        "Supabase"
+      ],
+      "status": "Live",
+      "title": "Streakly — Habit Tracker with Per-User Sync",
+      "role": "Personal build · Next.js, Supabase Auth + Postgres",
+      "desc": "A calm habit tracker with daily check-ins, current and longest streaks, 26-week heatmaps, a month calendar and statistics — backed by Supabase accounts and row-level security so every user's progress stays private and syncs across devices.",
+      "features": [
+        "Email/password accounts with Supabase Auth",
+        "Daily check-ins with accurate current and longest streaks",
+        "Heatmap, month calendar and completion statistics",
+        "Per-user storage guarded by Postgres row-level security",
+        "Offline cache with optimistic writes and rollback"
+      ],
+      "tech": [
+        "Next.js 16 · React 19",
+        "TypeScript · Tailwind CSS v4",
+        "Supabase Auth + Postgres",
+        "Vercel"
+      ],
+      "results": [],
+      "metrics": [],
+      "note": "Live in production; accounts and per-user data are handled by Supabase.",
+      "visual": "none",
+      "hasVideo": false,
+      "hasGallery": false,
+      "url": "https://streakly-habit-tracker-hari-5fd2.vercel.app"
     }
   ]
 }
