@@ -803,6 +803,18 @@ body::before {
     margin-top: clamp(2rem, 4.5vw, 3.5rem);
 }
 
+/* A project's own captures: one slide at a time, sized to the case study.
+   Proximity snap keeps the slides aligned without locking the rail to the
+   first frame when the case study is still below the fold. */
+.project-media .gallery {
+    scroll-snap-type: x proximity;
+    scroll-behavior: auto;
+}
+
+.project-media .gallery figure {
+    flex: 0 0 clamp(250px, 44vw, 540px);
+}
+
 /* terminal panel used as project visual */
 
 .term {

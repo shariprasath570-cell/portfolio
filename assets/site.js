@@ -524,7 +524,13 @@
                     { value: '11/11', label: 'Walk-forward' }
                 ],
                 note: 'Backtested results, not live trading performance.',
-                hasGallery: true,
+                gallery: [
+                    { file: 'steizen-shot.jpg', label: 'Platform overview' },
+                    { file: 'frame-dash.jpg', label: 'Dashboard' },
+                    { file: 'frame-chart.jpg', label: 'Chart' },
+                    { file: 'frame-signals.jpg', label: 'Signals' },
+                    { file: 'frame-analytics.jpg', label: 'Analytics' }
+                ],
                 hasVideo: true
             }
         ]
@@ -590,20 +596,21 @@
             '</div>';
     }
 
-    function galleryPanel(project) {
-        var frames = [
-            { file: 'frame-dash.jpg', label: 'Dashboard' },
-            { file: 'frame-chart.jpg', label: 'Chart' },
-            { file: 'frame-signals.jpg', label: 'Signals' },
-            { file: 'frame-analytics.jpg', label: 'Analytics' }
-        ];
+    /* A project's own captures, rendered beneath its write-up. */
+    function projectGallery(project) {
+        var items = (project.gallery || []).filter(function (item) {
+            return item && typeof item.file === 'string' && /^(?:assets\/)?[A-Za-z0-9._-]+\.(?:png|jpe?g|webp|avif)$/i.test(item.file.trim());
+        });
+        if (!items.length) return '';
 
-        var slides = frames.map(function (frame) {
+        var slides = items.map(function (item, index) {
+            var file = item.file.trim();
+            var label = item.label || 'Screen ' + (index + 1);
             return '' +
                 '<figure>' +
-                    '<img src="' + escapeHtml(frame.file) + '" alt="' + escapeHtml(project.title || 'Project') + ' — ' + escapeHtml(frame.label) + ' screen"' +
+                    '<img src="' + escapeHtml(file) + '" alt="' + escapeHtml(project.title || 'Project') + ' — ' + escapeHtml(label) + ' screen"' +
                     ' width="1280" height="800" loading="lazy" decoding="async">' +
-                    '<figcaption>' + escapeHtml(frame.label) + '</figcaption>' +
+                    '<figcaption>' + escapeHtml(label) + '</figcaption>' +
                 '</figure>';
         }).join('');
 
@@ -654,7 +661,13 @@
         buttons.forEach(function (button) {
             button.addEventListener('click', function () {
                 var forward = button.getAttribute('data-gallery') === 'next';
-                track.scrollBy({ left: (forward ? 1 : -1) * slideStep(), behavior: 'smooth' });
+                var max = track.scrollWidth - track.clientWidth;
+                var target = track.scrollLeft + (forward ? 1 : -1) * slideStep();
+                /* Assign directly: scrollBy() is unreliable while the case
+                   study is offscreen. Refresh the button states here because
+                   a programmatic jump may not emit a scroll event. */
+                track.scrollLeft = Math.max(0, Math.min(target, max));
+                sync();
             });
         });
 
@@ -826,12 +839,14 @@
             '</figure>'
             : '';
 
-        /* Screenshots and the demo now live in their own sections further down
-           the page, built by mountMedia(). The case study keeps only the
-           terminal, so the write-up stays readable. */
+        /* A project can carry its own captures; the demo video still has its
+           own section further down the page. */
         var media = '';
         if (project.visual === 'sih' || project.id === 'sih') {
             media = terminalPanel(project);
+        }
+        if (project.gallery && project.gallery.length) {
+            media += projectGallery(project);
         }
 
         return '' +
@@ -857,10 +872,8 @@
             '</article>';
     }
 
-    /* Photos and the demo video get their own full-width sections, so the page
-       reads in stages: the case studies, then the surfaces, then the recording. */
+    /* The demo recording keeps its own full-width section below the work. */
     function mountMedia(projects) {
-        var galleryHost = document.getElementById('screensMount');
         var videoHost = document.getElementById('demoMount');
 
         function firstWith(key) {
@@ -883,10 +896,8 @@
             initScreensPin();
         }
 
-        var galleryProject = firstWith('hasGallery');
         var videoProject = firstWith('hasVideo');
 
-        fill(galleryHost, galleryProject ? galleryPanel(galleryProject) : '');
         fill(videoHost, videoProject ? videoPanel(videoProject) : '');
     }
 
@@ -901,6 +912,7 @@
 
         mount.innerHTML = projects.map(projectMarkup).join('');
         activate(mount);
+        initGallery(mount);
         mountMedia(projects);
     }
 

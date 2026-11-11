@@ -88,7 +88,28 @@
       "note": "Backtested results, not live trading performance.",
       "visual": "none",
       "hasVideo": true,
-      "hasGallery": true
+      "gallery": [
+        {
+          "file": "steizen-shot.jpg",
+          "label": "Platform overview"
+        },
+        {
+          "file": "frame-dash.jpg",
+          "label": "Dashboard"
+        },
+        {
+          "file": "frame-chart.jpg",
+          "label": "Chart"
+        },
+        {
+          "file": "frame-signals.jpg",
+          "label": "Signals"
+        },
+        {
+          "file": "frame-analytics.jpg",
+          "label": "Analytics"
+        }
+      ]
     },
     {
       "id": "streakly",
